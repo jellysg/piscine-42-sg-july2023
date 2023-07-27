@@ -38,6 +38,7 @@ void ft_print_comb(void)
 	}
 }
 
+//will remove main before submission, used for checking
 int main(void)
 {
 	ft_print_comb();
