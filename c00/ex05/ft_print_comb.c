@@ -36,8 +36,6 @@ void ft_print_comb(void)
 		j = i + 1;
 		k = j + 1;
 	}
-
-	ft_putchar('\n');
 }
 
 int main(void)
