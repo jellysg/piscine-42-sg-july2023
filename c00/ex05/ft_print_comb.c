@@ -21,7 +21,7 @@ void ft_print_comb(void)
 				ft_putchar(j + '0');
 				ft_putchar(k + '0');
 
-				if (!(i == 7 && j == 8 && k == 9)) //is this allowed?
+				if (!(i == 7 && j == 8 && k == 9)) //is this allowed? if current number is not 789, then add comma space
 				{
 					ft_putchar(',');
 					ft_putchar(' ');
