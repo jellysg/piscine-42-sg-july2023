@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-void ft_putchar(char c) //can i reuse a function from ex00?
+void ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
@@ -17,11 +17,11 @@ void ft_print_comb(void)
 		{
 			while (k <= 9)
 			{
-				ft_putchar(i + '0'); //found out you can just use int + '0' to make it become char (to putchar)
+				ft_putchar(i + '0');
 				ft_putchar(j + '0');
 				ft_putchar(k + '0');
 
-				if (!(i == 7 && j == 8 && k == 9)) //is this allowed? if current number is not 789, then add comma space
+				if (!(i == 7 && j == 8 && k == 9))
 				{
 					ft_putchar(',');
 					ft_putchar(' ');
@@ -30,16 +30,10 @@ void ft_print_comb(void)
 				k++;
 			}
 			j++;
-			k = j + 1; //this is to make sure it cycles properly
+			k = j + 1;
 		}
 		i++;
 		j = i + 1;
 		k = j + 1;
 	}
-}
-
-//will remove main before submission, used for checking
-int main(void)
-{
-	ft_print_comb();
 }
