@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-void ft_putchar(char c)
+void ft_putchar(char c) //can i reuse a function from ex00?
 {
 	write(1, &c, 1);
 }
