@@ -17,9 +17,9 @@ void ft_print_comb(void)
 		{
 			while (k <= 9)
 			{
-			ft_putchar(i + '0'); //found out you can just use int + '0' to make it become char (to putchar)
-			ft_putchar(j + '0');
-			ft_putchar(k + '0');
+				ft_putchar(i + '0'); //found out you can just use int + '0' to make it become char (to putchar)
+				ft_putchar(j + '0');
+				ft_putchar(k + '0');
 
 				if (!(i == 7 && j == 8 && k == 9)) //is this allowed?
 				{
@@ -27,14 +27,14 @@ void ft_print_comb(void)
 					ft_putchar(' ');
 				}
 
-			k++;
+				k++;
 			}
-		j++;
-		k = j + 1; //this is to make sure it cycles properly
+			j++;
+			k = j + 1; //this is to make sure it cycles properly
 		}
-	i++;
-	j = i + 1;
-	k = j + 1;
+		i++;
+		j = i + 1;
+		k = j + 1;
 	}
 
 	ft_putchar('\n');
