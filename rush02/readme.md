@@ -1,7 +1,7 @@
 # 42 Piscine SG July 2023
 # Glossary
 
-### write_0_19
+write_0_19
 To write numbers from 0-19 (because they use the -teen suffix)
 
 ### write_20_99
