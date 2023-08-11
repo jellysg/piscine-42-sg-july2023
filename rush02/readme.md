@@ -1,5 +1,4 @@
-# Rush 02
-# Glossary
+# Rush 02 Index
 
 write_0_19
 - To write numbers from 0-19 (because they use the -teen suffix)
