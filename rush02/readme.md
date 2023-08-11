@@ -26,8 +26,8 @@ num_check
 		
 trim_zero
 - To trim the zeros (if any)
-	e.g. 1,000,420 = One Million Four Hundred Twenty
-	NOT  1,000,420 = One Million Zero Zero Zero Four Hundred Twenty Zero
+- e.g. 1,000,420 = One Million Four Hundred Twenty
+- NOT  1,000,420 = One Million Zero Zero Zero Four Hundred Twenty Zero
 
 if got more we need, can always append here for reference before eval
 confirm need a few more but i cant think of any atm
