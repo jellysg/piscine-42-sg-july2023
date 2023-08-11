@@ -1,4 +1,4 @@
-# 42 Piscine SG July 2023
+# Rush 02
 # Glossary
 
 write_0_19
