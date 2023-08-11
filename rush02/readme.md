@@ -7,7 +7,7 @@ write_20_99
 - To write numbers from 20-99 (using -ty + base number; e.g. forty two)
 		
 write_100
-- To write the hundredths (usually appended with 10_19 or 20_99)
+- To write the hundredths (usually appended with 0_19 or 20_99)
 		
 ft_write_number
 - Cast number as char to write
