@@ -3,7 +3,7 @@
 
 write_0_19
 - To write numbers from 0-19 (because they use the -teen suffix)
-\n
+
 write_20_99
 - To write numbers from 20-99 (using -ty + base number e.g. forty two)
 		
