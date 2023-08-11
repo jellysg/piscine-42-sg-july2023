@@ -10,19 +10,19 @@ write_100
 - To write the hundredths (usually appended with 10_19 or 20_99)
 		
 ft_write_number
-- Write number lol
+- Cast number as char to write
 		
 write_from_dict
 - Referencing the numbers.dict to write
 		
 ft_putstr
-- Ummmmmmm put string? xd
+- Umm put string? xd
 		
 ft_strlen
 - Length of string
 		
 num_check
-- To make sure argument passed only contains numbers
+- To make sure argument only contains numbers
 		
 trim_zero
 - To trim the zeros (if any)
