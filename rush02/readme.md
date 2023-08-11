@@ -1,10 +1,10 @@
 # Rush 02 Index
 
 write_0_19
-- To write numbers from 0-19 (because they use the -teen suffix)
+- To write numbers from 0-19 (because they use the -teen suffix; e.g. sixteen, seventeen)
 
 write_20_99
-- To write numbers from 20-99 (using -ty + base number e.g. forty two)
+- To write numbers from 20-99 (using -ty + base number; e.g. forty two)
 		
 write_100
 - To write the hundredths (usually appended with 10_19 or 20_99)
