@@ -35,6 +35,16 @@ Functions Index:
 	confirm need a few more but i cant think of any atm
 */
 
+
+2011004	=	{002}\0  (when hit \0, print million)
+		{011}\0  (when hit \0, print thousand)
+		{004}\0  (when hit \0, end)
+	
+738292	=	{738}\0  (when hit \0, print thousand)
+		{292}\0  (when hit \0, end)
+
+
+
 void	write_0_19(char *number, int start_index, int end_index, char *dict_str);
 //	write_0_19(char ptr, start, end, reference)
 
