@@ -74,3 +74,20 @@ char	**ft_split(char *str, char *charset)
 	*tmp = 0;
 	return (strs);
 }
+
+int	main(int argc, char *argv[])
+{
+	char **strs;
+
+	if (argc == 3)
+	{
+		printf("str: %s\n", argv[1]);
+		printf("sep: %s\n", argv[2]);
+
+		strs = ft_split(argv[1], argv[2]); 
+		while (*strs)
+			printf("%s\n", *strs++);
+	}
+	printf("\n");
+	return (0);
+}
