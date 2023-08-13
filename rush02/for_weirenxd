@@ -1,0 +1,148 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   atoui.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wei-tan <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/13 14:34:46 by wei-tan           #+#    #+#             */
+/*   Updated: 2023/08/13 14:44:05 by wei-tan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "atoui.h"
+
+int	ft_atoui(char *str, unsigned int *num)
+{
+	int					i;
+	int					sign;
+	unsigned long long	value;
+	int					valid;
+
+	i = 0;
+	sign = 1;
+	value = 0;
+	valid = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-')
+		sign = -1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
+	{
+		value = value * 10 + (str[i++] - '0');
+		valid = 1;
+	}
+	if (sign < 0 || value > 4294967295 || valid == 0 || str[i] != '\0')
+		return (-1);
+	*num = (unsigned int)value;
+	return (0);
+}
+
+
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jergoh <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/13 14:53:39 by jergoh            #+#    #+#             */
+/*   Updated: 2023/08/13 14:53:42 by jergoh           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "create.h"
+
+int	convert_line(char *first, char *last, unsigned int *key, char **val)
+{
+	unsigned long long	num;
+
+	num = 0;
+	first = iterate_whitespace(first);
+	if (is_num(*first))
+	{
+		first = convert_num(first, &num);
+		*key = (unsigned int) num;
+	}
+	while (*first != *last && *first != ':')
+		first++;
+	if (*first == ':')
+		first++;
+	first = iterate_whitespace(first);
+	while (*first != *last && !is_non_printable(*first))
+	{
+		append_char(*val, *first);
+		first++;
+	}
+	return (1);
+}
+
+int	process_line(char *first, char *last, t_entry *curr_entry)
+{
+	int		max_length;
+	char	*description;
+
+	max_length = last - first + 1;
+	description = (char *) malloc(max_length * sizeof(char));
+	if (!description)
+		return (0);
+	description[0] = '\0';
+	if (valid_line(first, last) == 0)
+	{
+		free(description);
+		return (0);
+	}
+	else
+	{
+		convert_line(first, last, &curr_entry->key, &description);
+		curr_entry->val = ft_strdup(description);
+		free(description);
+		return (1);
+	}
+}
+
+t_entry	*iterate_lines(t_entry *all_entries, char *dict_string, int count)
+{
+	int		i;
+	char	*first;
+	char	*last;
+
+	i = 0;
+	first = dict_string;
+	last = dict_string;
+	while (*dict_string && i < count)
+	{
+		if (*dict_string == '\n')
+		{
+			last = dict_string;
+			if (process_line(first, last, &all_entries[i]))
+				i++;
+			first = dict_string + 1;
+		}
+		dict_string++;
+	}
+	return (all_entries);
+}
+
+t_entry	*populate_entries(char *dict_string, int count)
+{
+	t_entry	*all_entries;
+
+	all_entries = (t_entry *) malloc(sizeof(t_entry) * (count + 1));
+	if (!all_entries)
+		return (0);
+	return (iterate_lines(all_entries, dict_string, count));
+}
+
+int	get_entries(char *dict_string, t_entry **all_entries)
+{
+	int	count;
+
+	count = count_entries(dict_string);
+	if (count < 1)
+		return (-1);
+	*all_entries = populate_entries(dict_string, count);
+	return (0);
+}
