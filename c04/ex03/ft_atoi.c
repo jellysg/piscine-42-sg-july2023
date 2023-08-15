@@ -1,17 +1,15 @@
 #include <unistd.h>
 
-int		ft_atoi(char *str)
+int	ft_atoi(char *str)
 {
-	int		sign;
-	int		number;
+	int	sign;
+	int	number;
 
 	sign = 1;
 	number = 0;
 	while (*str)
 	{
-		if (!(*str == ' ' || *str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
-			return (0);
-		else if (*str == '-')
+		if (*str == '-')
 			sign *= -1;
 		else if (*str >= '0' && *str <= '9')
 		{
@@ -29,12 +27,19 @@ int		ft_atoi(char *str)
 /*
 #include <stdio.h>
 
-int main(int argc, char *argv[])
+int ft_atoi(char *str);
+
+int main(void)
 {
-    for (int i = 1; i < argc; i++)
-    {
-        printf("\nInteger Returned: %d\n", ft_atoi(argv[i]));
-    }
+    char str[50];
+    int result;
+
+    printf("Enter a string: ");
+    scanf("%49s", str);
+
+    result = ft_atoi(str);
+    printf("Converted integer: %d\n", result);
+
     return 0;
 }
 */
