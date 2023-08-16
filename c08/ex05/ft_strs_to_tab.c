@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strs_to_tab.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jergoh <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/16 13:57:21 by jergoh            #+#    #+#             */
+/*   Updated: 2023/08/16 13:57:24 by jergoh           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include "ft_stock_str.h"
 
-int					ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int	length;
 
@@ -11,12 +23,12 @@ int					ft_strlen(char *str)
 	return (length);
 }
 
-char				*ft_strdup(char *src)
+char	*ft_strdup(char *src)
 {
 	char	*dest;
 	char	*buffer;
 
-	buffer = (char*)malloc(sizeof(*src) * ft_strlen(src) + 1);
+	buffer = (char *)malloc(sizeof(*src) * ft_strlen(src) + 1);
 	if (!buffer)
 		return (0);
 	dest = buffer;
@@ -26,13 +38,13 @@ char				*ft_strdup(char *src)
 	return (dest);
 }
 
-struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
+t_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
 	t_stock_str	*stock;
-	t_stock_str *buffer;
+	t_stock_str	*buffer;
 	int			index;
 
-	stock = (t_stock_str*)malloc(sizeof(*stock) * (ac + 1));
+	stock = (t_stock_str *)malloc(sizeof(*stock) * (ac + 1));
 	if (!stock)
 		return (NULL);
 	buffer = stock;
