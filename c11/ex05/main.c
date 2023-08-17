@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jergoh <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/16 19:15:20 by jergoh            #+#    #+#             */
+/*   Updated: 2023/08/16 19:15:21 by jergoh           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft.h"
 
 void	init(t_op f[5])
@@ -12,21 +24,26 @@ void	init(t_op f[5])
 t_bool	valid(char *op)
 {
 	if (ft_find_operator(*op, OPERATORS) >= 0 && !*(op + 1))
-		return (true);
-	return (false);
+		return (TRUE);
+	return (FALSE);
 }
 
-int		main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_op	operation;
 	t_op	operations[5];
 
 	init(operations);
-	if (argc == 4 && valid(argv[2]))
+	if (argc == 4)
 	{
-		if (*argv[2] == '/' && *argv[3] == '0')
+		if (!valid(argv[2]))
+		{
+			ft_putstr("0\n");
+			return (0);
+		}
+		if (valid(argv[2]) && *argv[2] == '/' && *argv[3] == '0')
 			ft_putstr("Stop : division by zero");
-		else if (*argv[2] == '%' && *argv[3] == '0')
+		else if (valid(argv[2]) && *argv[2] == '%' && *argv[3] == '0')
 			ft_putstr("Stop : modulo by zero");
 		else
 		{
@@ -36,6 +53,6 @@ int		main(int argc, char *argv[])
 		ft_putchar('\n');
 	}
 	else
-		ft_putstr("0\n");
+		return (0);
 	return (0);
 }
