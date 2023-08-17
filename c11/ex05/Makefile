@@ -11,7 +11,7 @@ INCDIR	= include
 SRCS	= ${SRCDIR}/ft_helper.c \
 	  		${SRCDIR}/ft_atoi.c \
 	  		${SRCDIR}/ft_find_operator.c \
-	  		operators.c \
+	  		calc.c \
 	  		main.c
 OBJS	= ${SRCS:.c=.o}
 
